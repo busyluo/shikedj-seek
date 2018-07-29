@@ -1,0 +1,25 @@
+
+{
+    "seekApp": {
+        "agentProvince" : {
+            "home": {
+                "title": "Agent Provinces",
+                "createLabel": "Create a new Agent Province",
+                "createOrEditLabel": "Create or edit a Agent Province"
+            },
+            "created": "A new Agent Province is created with identifier {{ param }}",
+            "updated": "A Agent Province is updated with identifier {{ param }}",
+            "deleted": "A Agent Province is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Agent Province {{ id }}?"
+            },
+            "detail": {
+                "title": "Agent Province"
+            },
+            "name": "Name",
+            "province": "Province",
+            "areas": "Areas",
+            "agent": "Agent"
+        }
+    }
+}

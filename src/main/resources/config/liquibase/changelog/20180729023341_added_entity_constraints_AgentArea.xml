@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AgentArea.
+    -->
+    <changeSet id="20180729023341-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="bonus_pool_id"
+                                 baseTableName="agent_area"
+                                 constraintName="fk_agent_area_bonus_pool_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bonus_pool"/>
+
+        <addForeignKeyConstraint baseColumnNames="province_id"
+                                 baseTableName="agent_area"
+                                 constraintName="fk_agent_area_province_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="agent_province"/>
+
+        <addForeignKeyConstraint baseColumnNames="agent_id"
+                                 baseTableName="agent_area"
+                                 constraintName="fk_agent_area_agent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="agent"/>
+
+    </changeSet>
+</databaseChangeLog>

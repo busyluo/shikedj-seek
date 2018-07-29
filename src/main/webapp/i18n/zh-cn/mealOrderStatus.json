@@ -1,0 +1,13 @@
+{
+    "seekApp": {
+        "MealOrderStatus" : {
+            "null": "",
+            "CREATED": "CREATED",
+            "APPOINTMENT_CREATED": "APPOINTMENT_CREATED",
+            "APPOINTMENT_PAID": "APPOINTMENT_PAID",
+            "APPOINTMENT_PAID_BUT_NO_TABLE": "APPOINTMENT_PAID_BUT_NO_TABLE",
+            "OPENED": "OPENED",
+            "CHECKOUT": "CHECKOUT"
+        }
+    }
+}

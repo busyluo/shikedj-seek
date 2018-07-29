@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-restaurant-heading" jhiTranslate="seekApp.restaurant.home.createOrEditLabel">Create or edit a Restaurant</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!restaurant.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="restaurant.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.restaurant.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="restaurant.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.restaurant.openTime" for="field_openTime">Open Time</label>
+                    <div class="d-flex">
+                        <input id="field_openTime" type="datetime-local" class="form-control" name="openTime" [(ngModel)]="openTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.restaurant.closeTime" for="field_closeTime">Close Time</label>
+                    <div class="d-flex">
+                        <input id="field_closeTime" type="datetime-local" class="form-control" name="closeTime" [(ngModel)]="closeTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.restaurant.phone" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                        [(ngModel)]="restaurant.phone" maxlength="15"/>
+                    <div [hidden]="!(editForm.controls.phone?.dirty && editForm.controls.phone?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.phone?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 15 }">
+                        This field cannot be longer than 15 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.restaurant.location" for="field_location">Location</label>
+                    <select class="form-control" id="field_location" name="location" [(ngModel)]="restaurant.location">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="locationOption.id === restaurant.location?.id ? restaurant.location : locationOption" *ngFor="let locationOption of locations; trackBy: trackLocationById">{{locationOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="seekApp.restaurant.types" for="field_types">Types</label>
+                    <select class="form-control" id="field_types" multiple name="types" [(ngModel)]="restaurant.types">
+                        <option [ngValue]="getSelected(restaurant.types, restaurantTypeOption)" *ngFor="let restaurantTypeOption of restauranttypes; trackBy: trackRestaurantTypeById">{{restaurantTypeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.restaurant.area" for="field_area">Area</label>
+                    <select class="form-control" id="field_area" name="area" [(ngModel)]="restaurant.area" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="agentAreaOption.id === restaurant.area?.id ? restaurant.area : agentAreaOption" *ngFor="let agentAreaOption of agentareas; trackBy: trackAgentAreaById">{{agentAreaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.restaurant.owner" for="field_owner">Owner</label>
+                    <select class="form-control" id="field_owner" name="owner" [(ngModel)]="restaurant.owner" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="restauranteurOption.id === restaurant.owner?.id ? restaurant.owner : restauranteurOption" *ngFor="let restauranteurOption of restauranteurs; trackBy: trackRestauranteurById">{{restauranteurOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

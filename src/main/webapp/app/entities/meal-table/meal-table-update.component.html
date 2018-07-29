@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-meal-table-heading" jhiTranslate="seekApp.mealTable.home.createOrEditLabel">Create or edit a Meal Table</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!mealTable.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="mealTable.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.mealTable.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" [(ngModel)]="mealTable.type" id="field_type" >
+                        <option value="SMALL">{{'seekApp.TableType.SMALL' | translate}}</option>
+                        <option value="MEDIUM">{{'seekApp.TableType.MEDIUM' | translate}}</option>
+                        <option value="BIG">{{'seekApp.TableType.BIG' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.mealTable.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="mealTable.status" id="field_status" >
+                        <option value="SPARE">{{'seekApp.TableStatus.SPARE' | translate}}</option>
+                        <option value="OCCUPIED">{{'seekApp.TableStatus.OCCUPIED' | translate}}</option>
+                        <option value="SUSPENDED">{{'seekApp.TableStatus.SUSPENDED' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.mealTable.restaurant" for="field_restaurant">Restaurant</label>
+                    <select class="form-control" id="field_restaurant" name="restaurant" [(ngModel)]="mealTable.restaurant" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="restaurantOption.id === mealTable.restaurant?.id ? mealTable.restaurant : restaurantOption" *ngFor="let restaurantOption of restaurants; trackBy: trackRestaurantById">{{restaurantOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

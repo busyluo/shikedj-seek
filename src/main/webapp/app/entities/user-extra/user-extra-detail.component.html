@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userExtra">
+            <h2><span jhiTranslate="seekApp.userExtra.detail.title">User Extra</span> {{userExtra.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="seekApp.userExtra.phone">Phone</span></dt>
+                <dd>
+                    <span>{{userExtra.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.userExtra.user">User</span></dt>
+                <dd>
+                    {{userExtra.user?.id}}
+                </dd>
+                <dt><span jhiTranslate="seekApp.userExtra.bank">Bank</span></dt>
+                <dd>
+                    <div *ngIf="userExtra.bank">
+                        <a [routerLink]="['/bank-account', userExtra.bank?.id, 'view']">{{userExtra.bank?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="seekApp.userExtra.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="userExtra.image">
+                        <a [routerLink]="['/image', userExtra.image?.id, 'view']">{{userExtra.image?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-extra', userExtra.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

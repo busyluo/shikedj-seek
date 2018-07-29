@@ -1,0 +1,46 @@
+{
+    "name": "Customer",
+    "fields": [
+        {
+            "fieldName": "openID",
+            "javadoc": "微信用户ID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "point",
+            "javadoc": "积分",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "userExtra",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "customer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "bonus",
+            "otherEntityName": "bonus",
+            "otherEntityRelationshipName": "customer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sealedBonus",
+            "otherEntityName": "sealedBonus",
+            "otherEntityRelationshipName": "customer"
+        }
+    ],
+    "changelogDate": "20180729023355",
+    "entityTableName": "customer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

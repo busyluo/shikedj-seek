@@ -1,0 +1,10 @@
+{
+    "seekApp": {
+        "TableType" : {
+            "null": "",
+            "SMALL": "SMALL",
+            "MEDIUM": "MEDIUM",
+            "BIG": "BIG"
+        }
+    }
+}

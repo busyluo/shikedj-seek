@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customer">
+            <h2><span jhiTranslate="seekApp.customer.detail.title">Customer</span> {{customer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="seekApp.customer.openID" [ngbTooltip]="'seekApp.customer.help.openID' | translate">Open ID</span></dt>
+                <dd>
+                    <span>{{customer.openID}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.customer.point" [ngbTooltip]="'seekApp.customer.help.point' | translate">Point</span></dt>
+                <dd>
+                    <span>{{customer.point}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.customer.user">User</span></dt>
+                <dd>
+                    <div *ngIf="customer.user">
+                        <a [routerLink]="['/user-extra', customer.user?.id, 'view']">{{customer.user?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer', customer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

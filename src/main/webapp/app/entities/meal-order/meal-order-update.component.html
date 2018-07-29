@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-meal-order-heading" jhiTranslate="seekApp.mealOrder.home.createOrEditLabel">Create or edit a Meal Order</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!mealOrder.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="mealOrder.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.mealOrder.time" for="field_time">Time</label>
+                    <div class="d-flex">
+                        <input id="field_time" type="datetime-local" class="form-control" name="time" [(ngModel)]="time"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.mealOrder.type" for="field_type" [ngbTooltip]="'seekApp.mealOrder.help.type' | translate">Type</label>
+                    <select class="form-control" name="type" [(ngModel)]="mealOrder.type" id="field_type" >
+                        <option value="NORMAL">{{'seekApp.MealOrderType.NORMAL' | translate}}</option>
+                        <option value="APPOINTMENT">{{'seekApp.MealOrderType.APPOINTMENT' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.mealOrder.status" for="field_status" [ngbTooltip]="'seekApp.mealOrder.help.status' | translate">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="mealOrder.status" id="field_status" >
+                        <option value="CREATED">{{'seekApp.MealOrderStatus.CREATED' | translate}}</option>
+                        <option value="APPOINTMENT_CREATED">{{'seekApp.MealOrderStatus.APPOINTMENT_CREATED' | translate}}</option>
+                        <option value="APPOINTMENT_PAID">{{'seekApp.MealOrderStatus.APPOINTMENT_PAID' | translate}}</option>
+                        <option value="APPOINTMENT_PAID_BUT_NO_TABLE">{{'seekApp.MealOrderStatus.APPOINTMENT_PAID_BUT_NO_TABLE' | translate}}</option>
+                        <option value="OPENED">{{'seekApp.MealOrderStatus.OPENED' | translate}}</option>
+                        <option value="CHECKOUT">{{'seekApp.MealOrderStatus.CHECKOUT' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.mealOrder.pointUsage" for="field_pointUsage" [ngbTooltip]="'seekApp.mealOrder.help.pointUsage' | translate">Point Usage</label>
+                    <input type="number" class="form-control" name="pointUsage" id="field_pointUsage"
+                        [(ngModel)]="mealOrder.pointUsage" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.mealOrder.paidAmount" for="field_paidAmount" [ngbTooltip]="'seekApp.mealOrder.help.paidAmount' | translate">Paid Amount</label>
+                    <input type="number" class="form-control" name="paidAmount" id="field_paidAmount"
+                        [(ngModel)]="mealOrder.paidAmount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.mealOrder.actualPay" for="field_actualPay" [ngbTooltip]="'seekApp.mealOrder.help.actualPay' | translate">Actual Pay</label>
+                    <input type="number" class="form-control" name="actualPay" id="field_actualPay"
+                        [(ngModel)]="mealOrder.actualPay" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.mealOrder.totalPrice" for="field_totalPrice" [ngbTooltip]="'seekApp.mealOrder.help.totalPrice' | translate">Total Price</label>
+                    <input type="number" class="form-control" name="totalPrice" id="field_totalPrice"
+                        [(ngModel)]="mealOrder.totalPrice" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.mealOrder.restaurant" for="field_restaurant">Restaurant</label>
+                    <select class="form-control" id="field_restaurant" name="restaurant" [(ngModel)]="mealOrder.restaurant" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="restaurantOption.id === mealOrder.restaurant?.id ? mealOrder.restaurant : restaurantOption" *ngFor="let restaurantOption of restaurants; trackBy: trackRestaurantById">{{restaurantOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bankAccount">
+            <h2><span jhiTranslate="seekApp.bankAccount.detail.title">Bank Account</span> {{bankAccount.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="seekApp.bankAccount.bankName">Bank Name</span></dt>
+                <dd>
+                    <span>{{bankAccount.bankName}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.bankAccount.bankBranch">Bank Branch</span></dt>
+                <dd>
+                    <span>{{bankAccount.bankBranch}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.bankAccount.bankID">Bank ID</span></dt>
+                <dd>
+                    <span>{{bankAccount.bankID}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bank-account', bankAccount.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

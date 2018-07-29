@@ -1,0 +1,23 @@
+
+{
+    "seekApp": {
+        "agentAdmin" : {
+            "home": {
+                "title": "Agent Admins",
+                "createLabel": "Create a new Agent Admin",
+                "createOrEditLabel": "Create or edit a Agent Admin"
+            },
+            "created": "A new Agent Admin is created with identifier {{ param }}",
+            "updated": "A Agent Admin is updated with identifier {{ param }}",
+            "deleted": "A Agent Admin is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Agent Admin {{ id }}?"
+            },
+            "detail": {
+                "title": "Agent Admin"
+            },
+            "user": "User",
+            "provinces": "Provinces"
+        }
+    }
+}

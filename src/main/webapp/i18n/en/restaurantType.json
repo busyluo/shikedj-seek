@@ -1,0 +1,23 @@
+
+{
+    "seekApp": {
+        "restaurantType" : {
+            "home": {
+                "title": "Restaurant Types",
+                "createLabel": "Create a new Restaurant Type",
+                "createOrEditLabel": "Create or edit a Restaurant Type"
+            },
+            "created": "A new Restaurant Type is created with identifier {{ param }}",
+            "updated": "A Restaurant Type is updated with identifier {{ param }}",
+            "deleted": "A Restaurant Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Restaurant Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Restaurant Type"
+            },
+            "type": "Type",
+            "restaurants": "Restaurants"
+        }
+    }
+}

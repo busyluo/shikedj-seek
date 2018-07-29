@@ -1,0 +1,23 @@
+
+{
+    "seekApp": {
+        "restauranteur" : {
+            "home": {
+                "title": "Restauranteurs",
+                "createLabel": "Create a new Restauranteur",
+                "createOrEditLabel": "Create or edit a Restauranteur"
+            },
+            "created": "A new Restauranteur is created with identifier {{ param }}",
+            "updated": "A Restauranteur is updated with identifier {{ param }}",
+            "deleted": "A Restauranteur is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Restauranteur {{ id }}?"
+            },
+            "detail": {
+                "title": "Restauranteur"
+            },
+            "user": "User",
+            "restaurant": "Restaurant"
+        }
+    }
+}

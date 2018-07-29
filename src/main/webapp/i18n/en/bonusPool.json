@@ -1,0 +1,25 @@
+
+{
+    "seekApp": {
+        "bonusPool" : {
+            "home": {
+                "title": "Bonus Pools",
+                "createLabel": "Create a new Bonus Pool",
+                "createOrEditLabel": "Create or edit a Bonus Pool"
+            },
+            "created": "A new Bonus Pool is created with identifier {{ param }}",
+            "updated": "A Bonus Pool is updated with identifier {{ param }}",
+            "deleted": "A Bonus Pool is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Bonus Pool {{ id }}?"
+            },
+            "detail": {
+                "title": "Bonus Pool"
+            },
+            "date": "Date",
+            "used": "Used",
+            "total": "Total",
+            "area": "Area"
+        }
+    }
+}

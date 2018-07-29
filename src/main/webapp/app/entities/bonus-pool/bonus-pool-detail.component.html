@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bonusPool">
+            <h2><span jhiTranslate="seekApp.bonusPool.detail.title">Bonus Pool</span> {{bonusPool.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="seekApp.bonusPool.date">Date</span></dt>
+                <dd>
+                    <span>{{bonusPool.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.bonusPool.used">Used</span></dt>
+                <dd>
+                    <span>{{bonusPool.used}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.bonusPool.total">Total</span></dt>
+                <dd>
+                    <span>{{bonusPool.total}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bonus-pool', bonusPool.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

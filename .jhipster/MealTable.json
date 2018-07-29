@@ -1,0 +1,33 @@
+{
+    "name": "MealTable",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "TableType",
+            "fieldValues": "SMALL,MEDIUM,BIG"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "TableStatus",
+            "fieldValues": "SPARE,OCCUPIED,SUSPENDED"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "restaurant",
+            "otherEntityName": "restaurant",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180729023345",
+    "javadoc": "桌位",
+    "entityTableName": "meal_table",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

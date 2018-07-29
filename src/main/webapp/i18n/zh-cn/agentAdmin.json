@@ -1,0 +1,23 @@
+
+{
+    "seekApp": {
+        "agentAdmin" : {
+            "home": {
+                "title": "Agent Admins",
+                "createLabel": "创建新 Agent Admin",
+                "createOrEditLabel": "创建或编辑 Agent Admin"
+            },
+            "created": "Agent Admin {{ param }} 创建成功",
+            "updated": "Agent Admin {{ param }} 更新成功",
+            "deleted": "Agent Admin {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Agent Admin {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Agent Admin"
+            },
+            "user": "User",
+            "provinces": "Provinces"
+        }
+    }
+}

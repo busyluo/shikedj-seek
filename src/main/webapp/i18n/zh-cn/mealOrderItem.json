@@ -1,0 +1,24 @@
+
+{
+    "seekApp": {
+        "mealOrderItem" : {
+            "home": {
+                "title": "Meal Order Items",
+                "createLabel": "创建新 Meal Order Item",
+                "createOrEditLabel": "创建或编辑 Meal Order Item"
+            },
+            "created": "Meal Order Item {{ param }} 创建成功",
+            "updated": "Meal Order Item {{ param }} 更新成功",
+            "deleted": "Meal Order Item {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Meal Order Item {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Meal Order Item"
+            },
+            "amount": "Amount",
+            "dish": "Dish",
+            "order": "Order"
+        }
+    }
+}

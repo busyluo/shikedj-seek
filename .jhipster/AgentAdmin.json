@@ -1,0 +1,30 @@
+{
+    "name": "AgentAdmin",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "userExtra",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "agentAdmin"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "provinces",
+            "otherEntityName": "agentProvince",
+            "otherEntityRelationshipName": "agent"
+        }
+    ],
+    "changelogDate": "20180729023358",
+    "javadoc": "代理商管理员（一级代理）",
+    "entityTableName": "agent_admin",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

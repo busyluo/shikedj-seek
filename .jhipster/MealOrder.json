@@ -1,0 +1,65 @@
+{
+    "name": "MealOrder",
+    "fields": [
+        {
+            "fieldName": "time",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "type",
+            "javadoc": "订单类型",
+            "fieldType": "MealOrderType",
+            "fieldValues": "NORMAL,APPOINTMENT"
+        },
+        {
+            "fieldName": "status",
+            "javadoc": "订单状态",
+            "fieldType": "MealOrderStatus",
+            "fieldValues": "CREATED,APPOINTMENT_CREATED,APPOINTMENT_PAID,APPOINTMENT_PAID_BUT_NO_TABLE,OPENED,CHECKOUT"
+        },
+        {
+            "fieldName": "pointUsage",
+            "javadoc": "使用积分数量",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "paidAmount",
+            "javadoc": "已支付金额",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "actualPay",
+            "javadoc": "实际付款金额",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "totalPrice",
+            "javadoc": "消费总额",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dishes",
+            "otherEntityName": "mealOrderItem",
+            "otherEntityRelationshipName": "order"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "restaurant",
+            "otherEntityName": "restaurant",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180729023350",
+    "javadoc": "用餐订单",
+    "entityTableName": "meal_order",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

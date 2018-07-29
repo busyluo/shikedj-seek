@@ -1,0 +1,30 @@
+{
+    "name": "Restauranteur",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "userExtra",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "restauranteur"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "restaurant",
+            "otherEntityName": "restaurant",
+            "otherEntityRelationshipName": "owner"
+        }
+    ],
+    "changelogDate": "20180729023357",
+    "javadoc": "餐馆老板",
+    "entityTableName": "restauranteur",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

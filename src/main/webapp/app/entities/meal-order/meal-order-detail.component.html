@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mealOrder">
+            <h2><span jhiTranslate="seekApp.mealOrder.detail.title">Meal Order</span> {{mealOrder.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="seekApp.mealOrder.time">Time</span></dt>
+                <dd>
+                    <span>{{mealOrder.time}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.mealOrder.type" [ngbTooltip]="'seekApp.mealOrder.help.type' | translate">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'seekApp.MealOrderType.' + mealOrder.type}}">{{mealOrder.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.mealOrder.status" [ngbTooltip]="'seekApp.mealOrder.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'seekApp.MealOrderStatus.' + mealOrder.status}}">{{mealOrder.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.mealOrder.pointUsage" [ngbTooltip]="'seekApp.mealOrder.help.pointUsage' | translate">Point Usage</span></dt>
+                <dd>
+                    <span>{{mealOrder.pointUsage}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.mealOrder.paidAmount" [ngbTooltip]="'seekApp.mealOrder.help.paidAmount' | translate">Paid Amount</span></dt>
+                <dd>
+                    <span>{{mealOrder.paidAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.mealOrder.actualPay" [ngbTooltip]="'seekApp.mealOrder.help.actualPay' | translate">Actual Pay</span></dt>
+                <dd>
+                    <span>{{mealOrder.actualPay}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.mealOrder.totalPrice" [ngbTooltip]="'seekApp.mealOrder.help.totalPrice' | translate">Total Price</span></dt>
+                <dd>
+                    <span>{{mealOrder.totalPrice}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.mealOrder.restaurant">Restaurant</span></dt>
+                <dd>
+                    <div *ngIf="mealOrder.restaurant">
+                        <a [routerLink]="['/restaurant', mealOrder.restaurant?.id, 'view']">{{mealOrder.restaurant?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/meal-order', mealOrder.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

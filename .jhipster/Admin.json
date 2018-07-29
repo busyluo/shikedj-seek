@@ -1,0 +1,24 @@
+{
+    "name": "Admin",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "userExtra",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "admin"
+        }
+    ],
+    "changelogDate": "20180729023402",
+    "javadoc": "管理员",
+    "entityTableName": "admin",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

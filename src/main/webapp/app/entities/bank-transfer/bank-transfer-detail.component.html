@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bankTransfer">
+            <h2><span jhiTranslate="seekApp.bankTransfer.detail.title">Bank Transfer</span> {{bankTransfer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="seekApp.bankTransfer.time">Time</span></dt>
+                <dd>
+                    <span>{{bankTransfer.time}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.bankTransfer.amount">Amount</span></dt>
+                <dd>
+                    <span>{{bankTransfer.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.bankTransfer.bank">Bank</span></dt>
+                <dd>
+                    <div *ngIf="bankTransfer.bank">
+                        <a [routerLink]="['/bank-account', bankTransfer.bank?.id, 'view']">{{bankTransfer.bank?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="seekApp.bankTransfer.user">User</span></dt>
+                <dd>
+                    <div *ngIf="bankTransfer.user">
+                        <a [routerLink]="['/user-extra', bankTransfer.user?.id, 'view']">{{bankTransfer.user?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bank-transfer', bankTransfer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

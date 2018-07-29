@@ -1,0 +1,25 @@
+
+{
+    "seekApp": {
+        "sealedBonus" : {
+            "home": {
+                "title": "Sealed Bonuses",
+                "createLabel": "创建新 Sealed Bonus",
+                "createOrEditLabel": "创建或编辑 Sealed Bonus"
+            },
+            "created": "Sealed Bonus {{ param }} 创建成功",
+            "updated": "Sealed Bonus {{ param }} 更新成功",
+            "deleted": "Sealed Bonus {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Sealed Bonus {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Sealed Bonus"
+            },
+            "progress": "Progress",
+            "amount": "Amount",
+            "order": "Order",
+            "customer": "Customer"
+        }
+    }
+}

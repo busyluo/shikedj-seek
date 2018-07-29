@@ -1,0 +1,10 @@
+{
+    "seekApp": {
+        "TableStatus" : {
+            "null": "",
+            "SPARE": "SPARE",
+            "OCCUPIED": "OCCUPIED",
+            "SUSPENDED": "SUSPENDED"
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "name": "BonusPool",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "used",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "area",
+            "otherEntityName": "agentArea",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "bonusPool"
+        }
+    ],
+    "changelogDate": "20180729023352",
+    "javadoc": "奖金池",
+    "entityTableName": "bonus_pool",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

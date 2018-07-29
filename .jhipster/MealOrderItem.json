@@ -1,0 +1,35 @@
+{
+    "name": "MealOrderItem",
+    "fields": [
+        {
+            "fieldName": "amount",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "dish",
+            "otherEntityName": "dish",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "mealOrderItem"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "order",
+            "otherEntityName": "mealOrder",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180729023349",
+    "javadoc": "订单里的菜品",
+    "entityTableName": "meal_order_item",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

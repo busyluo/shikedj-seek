@@ -1,0 +1,27 @@
+{
+    "name": "BankAccount",
+    "fields": [
+        {
+            "fieldName": "bankName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bankBranch",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bankID",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180729023356",
+    "entityTableName": "bank_account",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

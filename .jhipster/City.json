@@ -1,0 +1,33 @@
+{
+    "name": "City",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "districts",
+            "otherEntityName": "district",
+            "otherEntityRelationshipName": "city"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "province",
+            "otherEntityName": "province",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180729023339",
+    "javadoc": "市",
+    "entityTableName": "city",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,25 @@
+
+{
+    "seekApp": {
+        "bankTransfer" : {
+            "home": {
+                "title": "Bank Transfers",
+                "createLabel": "创建新 Bank Transfer",
+                "createOrEditLabel": "创建或编辑 Bank Transfer"
+            },
+            "created": "Bank Transfer {{ param }} 创建成功",
+            "updated": "Bank Transfer {{ param }} 更新成功",
+            "deleted": "Bank Transfer {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Bank Transfer {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Bank Transfer"
+            },
+            "time": "Time",
+            "amount": "Amount",
+            "bank": "Bank",
+            "user": "User"
+        }
+    }
+}

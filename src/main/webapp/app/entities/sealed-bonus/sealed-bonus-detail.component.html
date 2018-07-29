@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sealedBonus">
+            <h2><span jhiTranslate="seekApp.sealedBonus.detail.title">Sealed Bonus</span> {{sealedBonus.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="seekApp.sealedBonus.progress">Progress</span></dt>
+                <dd>
+                    <span>{{sealedBonus.progress}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.sealedBonus.amount">Amount</span></dt>
+                <dd>
+                    <span>{{sealedBonus.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.sealedBonus.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="sealedBonus.order">
+                        <a [routerLink]="['/meal-order', sealedBonus.order?.id, 'view']">{{sealedBonus.order?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="seekApp.sealedBonus.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="sealedBonus.customer">
+                        <a [routerLink]="['/customer', sealedBonus.customer?.id, 'view']">{{sealedBonus.customer?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sealed-bonus', sealedBonus.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

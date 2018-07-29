@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="agentProvince">
+            <h2><span jhiTranslate="seekApp.agentProvince.detail.title">Agent Province</span> {{agentProvince.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="seekApp.agentProvince.name">Name</span></dt>
+                <dd>
+                    <span>{{agentProvince.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.agentProvince.province">Province</span></dt>
+                <dd>
+                    <div *ngIf="agentProvince.province">
+                        <a [routerLink]="['/province', agentProvince.province?.id, 'view']">{{agentProvince.province?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="seekApp.agentProvince.agent">Agent</span></dt>
+                <dd>
+                    <div *ngIf="agentProvince.agent">
+                        <a [routerLink]="['/agent-admin', agentProvince.agent?.id, 'view']">{{agentProvince.agent?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/agent-province', agentProvince.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

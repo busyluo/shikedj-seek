@@ -1,0 +1,9 @@
+{
+    "seekApp": {
+        "MealOrderType" : {
+            "null": "",
+            "NORMAL": "NORMAL",
+            "APPOINTMENT": "APPOINTMENT"
+        }
+    }
+}

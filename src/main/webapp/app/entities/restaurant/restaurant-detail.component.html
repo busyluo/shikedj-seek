@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="restaurant">
+            <h2><span jhiTranslate="seekApp.restaurant.detail.title">Restaurant</span> {{restaurant.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="seekApp.restaurant.name">Name</span></dt>
+                <dd>
+                    <span>{{restaurant.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.restaurant.openTime">Open Time</span></dt>
+                <dd>
+                    <span>{{restaurant.openTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.restaurant.closeTime">Close Time</span></dt>
+                <dd>
+                    <span>{{restaurant.closeTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.restaurant.phone">Phone</span></dt>
+                <dd>
+                    <span>{{restaurant.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.restaurant.location">Location</span></dt>
+                <dd>
+                    <div *ngIf="restaurant.location">
+                        <a [routerLink]="['/location', restaurant.location?.id, 'view']">{{restaurant.location?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="seekApp.restaurant.types">Types</span></dt>
+                <dd>
+                    <span *ngFor="let types of restaurant.types; let last = last">
+                        <a [routerLink]="['/restaurant-type', types?.id, 'view' ]">{{types.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.restaurant.area">Area</span></dt>
+                <dd>
+                    <div *ngIf="restaurant.area">
+                        <a [routerLink]="['/agent-area', restaurant.area?.id, 'view']">{{restaurant.area?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="seekApp.restaurant.owner">Owner</span></dt>
+                <dd>
+                    <div *ngIf="restaurant.owner">
+                        <a [routerLink]="['/restauranteur', restaurant.owner?.id, 'view']">{{restaurant.owner?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/restaurant', restaurant.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

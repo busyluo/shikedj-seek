@@ -1,0 +1,30 @@
+{
+    "name": "Agent",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "userExtra",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "agent"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "area",
+            "otherEntityName": "agentArea",
+            "otherEntityRelationshipName": "agent"
+        }
+    ],
+    "changelogDate": "20180729023359",
+    "javadoc": "代理商（二级代理）",
+    "entityTableName": "agent",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

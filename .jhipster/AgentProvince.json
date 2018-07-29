@@ -1,0 +1,41 @@
+{
+    "name": "AgentProvince",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "province",
+            "otherEntityName": "province",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "agentProvince"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "areas",
+            "otherEntityName": "agentArea",
+            "otherEntityRelationshipName": "province"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "agent",
+            "otherEntityName": "agentAdmin",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180729023342",
+    "javadoc": "省级代理",
+    "entityTableName": "agent_province",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

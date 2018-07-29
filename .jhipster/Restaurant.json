@@ -1,0 +1,89 @@
+{
+    "name": "Restaurant",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "openTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "closeTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 15
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "location",
+            "otherEntityName": "location",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "restaurant"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "table",
+            "otherEntityName": "mealTable",
+            "otherEntityRelationshipName": "restaurant"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "photos",
+            "otherEntityName": "image",
+            "otherEntityRelationshipName": "restaurant"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "cuisines",
+            "otherEntityName": "cuisine",
+            "otherEntityRelationshipName": "restaurant"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "orders",
+            "otherEntityName": "mealOrder",
+            "otherEntityRelationshipName": "restaurant"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "restaurants",
+            "relationshipName": "types",
+            "otherEntityName": "restaurantType",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "area",
+            "otherEntityName": "agentArea",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "owner",
+            "otherEntityName": "restauranteur",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180729023346",
+    "javadoc": "餐馆",
+    "entityTableName": "restaurant",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

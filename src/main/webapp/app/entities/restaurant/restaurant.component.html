@@ -1,0 +1,84 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="seekApp.restaurant.home.title">Restaurants</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-restaurant" [routerLink]="['/restaurant/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="seekApp.restaurant.home.createLabel">
+            Create new Restaurant
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="restaurants">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="seekApp.restaurant.name">Name</span></th>
+            <th><span jhiTranslate="seekApp.restaurant.openTime">Open Time</span></th>
+            <th><span jhiTranslate="seekApp.restaurant.closeTime">Close Time</span></th>
+            <th><span jhiTranslate="seekApp.restaurant.phone">Phone</span></th>
+            <th><span jhiTranslate="seekApp.restaurant.location">Location</span></th>
+            <th><span jhiTranslate="seekApp.restaurant.types">Types</span></th>
+            <th><span jhiTranslate="seekApp.restaurant.area">Area</span></th>
+            <th><span jhiTranslate="seekApp.restaurant.owner">Owner</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let restaurant of restaurants ;trackBy: trackId">
+                <td><a [routerLink]="['/restaurant', restaurant.id, 'view' ]">{{restaurant.id}}</a></td>
+                <td>{{restaurant.name}}</td>
+                <td>{{restaurant.openTime | date:'medium'}}</td>
+                <td>{{restaurant.closeTime | date:'medium'}}</td>
+                <td>{{restaurant.phone}}</td>
+                <td>
+                    <div *ngIf="restaurant.location">
+                        <a [routerLink]="['../location', restaurant.location?.id, 'view' ]" >{{restaurant.location?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <span *ngFor="let types of restaurant.types; let last = last">
+                            <a class="form-control-static" [routerLink]="['../restaurant-type', types?.id, 'view' ]">{{types.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <div *ngIf="restaurant.area">
+                        <a [routerLink]="['../agent-area', restaurant.area?.id, 'view' ]" >{{restaurant.area?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="restaurant.owner">
+                        <a [routerLink]="['../restauranteur', restaurant.owner?.id, 'view' ]" >{{restaurant.owner?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/restaurant', restaurant.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/restaurant', restaurant.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'restaurant/'+ restaurant.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

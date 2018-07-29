@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bonus">
+            <h2><span jhiTranslate="seekApp.bonus.detail.title">Bonus</span> {{bonus.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="seekApp.bonus.amount">Amount</span></dt>
+                <dd>
+                    <span>{{bonus.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.bonus.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="bonus.order">
+                        <a [routerLink]="['/meal-order', bonus.order?.id, 'view']">{{bonus.order?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="seekApp.bonus.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="bonus.customer">
+                        <a [routerLink]="['/customer', bonus.customer?.id, 'view']">{{bonus.customer?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bonus', bonus.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

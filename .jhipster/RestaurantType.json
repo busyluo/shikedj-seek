@@ -1,0 +1,32 @@
+{
+    "name": "RestaurantType",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "restaurants",
+            "otherEntityName": "restaurant",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "types"
+        }
+    ],
+    "changelogDate": "20180729023344",
+    "javadoc": "餐馆分类",
+    "entityTableName": "restaurant_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

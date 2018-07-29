@@ -1,0 +1,23 @@
+
+{
+    "seekApp": {
+        "restaurantType" : {
+            "home": {
+                "title": "Restaurant Types",
+                "createLabel": "创建新 Restaurant Type",
+                "createOrEditLabel": "创建或编辑 Restaurant Type"
+            },
+            "created": "Restaurant Type {{ param }} 创建成功",
+            "updated": "Restaurant Type {{ param }} 更新成功",
+            "deleted": "Restaurant Type {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Restaurant Type {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Restaurant Type"
+            },
+            "type": "Type",
+            "restaurants": "Restaurants"
+        }
+    }
+}

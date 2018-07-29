@@ -1,0 +1,24 @@
+
+{
+    "seekApp": {
+        "cuisine" : {
+            "home": {
+                "title": "Cuisines",
+                "createLabel": "创建新 Cuisine",
+                "createOrEditLabel": "创建或编辑 Cuisine"
+            },
+            "created": "Cuisine {{ param }} 创建成功",
+            "updated": "Cuisine {{ param }} 更新成功",
+            "deleted": "Cuisine {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Cuisine {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Cuisine"
+            },
+            "name": "Name",
+            "dishes": "Dishes",
+            "restaurant": "Restaurant"
+        }
+    }
+}

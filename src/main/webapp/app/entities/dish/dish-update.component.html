@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-dish-heading" jhiTranslate="seekApp.dish.home.createOrEditLabel">Create or edit a Dish</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!dish.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="dish.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.dish.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="dish.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.dish.price" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                        [(ngModel)]="dish.price" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.dish.cuisine" for="field_cuisine">Cuisine</label>
+                    <select class="form-control" id="field_cuisine" name="cuisine" [(ngModel)]="dish.cuisine" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cuisineOption.id === dish.cuisine?.id ? dish.cuisine : cuisineOption" *ngFor="let cuisineOption of cuisines; trackBy: trackCuisineById">{{cuisineOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

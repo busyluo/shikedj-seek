@@ -1,0 +1,38 @@
+
+{
+    "seekApp": {
+        "mealOrder" : {
+            "home": {
+                "title": "Meal Orders",
+                "createLabel": "创建新 Meal Order",
+                "createOrEditLabel": "创建或编辑 Meal Order"
+            },
+            "created": "Meal Order {{ param }} 创建成功",
+            "updated": "Meal Order {{ param }} 更新成功",
+            "deleted": "Meal Order {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Meal Order {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Meal Order"
+            },
+            "time": "Time",
+            "type": "Type",
+            "status": "Status",
+            "pointUsage": "Point Usage",
+            "paidAmount": "Paid Amount",
+            "actualPay": "Actual Pay",
+            "totalPrice": "Total Price",
+            "dishes": "Dishes",
+            "restaurant": "Restaurant",
+            "help": {
+                "type": "订单类型",
+                "status": "订单状态",
+                "pointUsage": "使用积分数量",
+                "paidAmount": "已支付金额",
+                "actualPay": "实际付款金额",
+                "totalPrice": "消费总额"
+            }
+        }
+    }
+}

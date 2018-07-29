@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-user-extra-heading" jhiTranslate="seekApp.userExtra.home.createOrEditLabel">Create or edit a User Extra</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!userExtra.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="userExtra.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.userExtra.phone" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                        [(ngModel)]="userExtra.phone" maxlength="11"/>
+                    <div [hidden]="!(editForm.controls.phone?.dirty && editForm.controls.phone?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.phone?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 11 }">
+                        This field cannot be longer than 11 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.userExtra.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="userExtra.user" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === userExtra.user?.id ? userExtra.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.userExtra.bank" for="field_bank">Bank</label>
+                    <select class="form-control" id="field_bank" name="bank" [(ngModel)]="userExtra.bank">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="bankAccountOption.id === userExtra.bank?.id ? userExtra.bank : bankAccountOption" *ngFor="let bankAccountOption of banks; trackBy: trackBankAccountById">{{bankAccountOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="seekApp.userExtra.image" for="field_image">Image</label>
+                    <select class="form-control" id="field_image" name="image" [(ngModel)]="userExtra.image">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="imageOption.id === userExtra.image?.id ? userExtra.image : imageOption" *ngFor="let imageOption of images; trackBy: trackImageById">{{imageOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+
+{
+    "seekApp": {
+        "dish" : {
+            "home": {
+                "title": "Dishes",
+                "createLabel": "创建新 Dish",
+                "createOrEditLabel": "创建或编辑 Dish"
+            },
+            "created": "Dish {{ param }} 创建成功",
+            "updated": "Dish {{ param }} 更新成功",
+            "deleted": "Dish {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Dish {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Dish"
+            },
+            "name": "Name",
+            "price": "Price",
+            "images": "Images",
+            "cuisine": "Cuisine"
+        }
+    }
+}

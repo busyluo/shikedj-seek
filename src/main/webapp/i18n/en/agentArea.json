@@ -1,0 +1,26 @@
+
+{
+    "seekApp": {
+        "agentArea" : {
+            "home": {
+                "title": "Agent Areas",
+                "createLabel": "Create a new Agent Area",
+                "createOrEditLabel": "Create or edit a Agent Area"
+            },
+            "created": "A new Agent Area is created with identifier {{ param }}",
+            "updated": "A Agent Area is updated with identifier {{ param }}",
+            "deleted": "A Agent Area is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Agent Area {{ id }}?"
+            },
+            "detail": {
+                "title": "Agent Area"
+            },
+            "name": "Name",
+            "bonusPool": "Bonus Pool",
+            "restaurant": "Restaurant",
+            "province": "Province",
+            "agent": "Agent"
+        }
+    }
+}

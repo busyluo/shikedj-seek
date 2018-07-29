@@ -1,0 +1,25 @@
+
+{
+    "seekApp": {
+        "bankTransfer" : {
+            "home": {
+                "title": "Bank Transfers",
+                "createLabel": "Create a new Bank Transfer",
+                "createOrEditLabel": "Create or edit a Bank Transfer"
+            },
+            "created": "A new Bank Transfer is created with identifier {{ param }}",
+            "updated": "A Bank Transfer is updated with identifier {{ param }}",
+            "deleted": "A Bank Transfer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Bank Transfer {{ id }}?"
+            },
+            "detail": {
+                "title": "Bank Transfer"
+            },
+            "time": "Time",
+            "amount": "Amount",
+            "bank": "Bank",
+            "user": "User"
+        }
+    }
+}

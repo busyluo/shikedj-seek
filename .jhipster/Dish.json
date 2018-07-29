@@ -1,0 +1,37 @@
+{
+    "name": "Dish",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "images",
+            "otherEntityName": "image",
+            "otherEntityRelationshipName": "dish"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "cuisine",
+            "otherEntityName": "cuisine",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180729023347",
+    "javadoc": "菜",
+    "entityTableName": "dish",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

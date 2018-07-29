@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="image">
+            <h2><span jhiTranslate="seekApp.image.detail.title">Image</span> {{image.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="seekApp.image.url">Url</span></dt>
+                <dd>
+                    <span>{{image.url}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.image.name">Name</span></dt>
+                <dd>
+                    <span>{{image.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="seekApp.image.restaurant">Restaurant</span></dt>
+                <dd>
+                    <div *ngIf="image.restaurant">
+                        <a [routerLink]="['/restaurant', image.restaurant?.id, 'view']">{{image.restaurant?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="seekApp.image.dish">Dish</span></dt>
+                <dd>
+                    <div *ngIf="image.dish">
+                        <a [routerLink]="['/dish', image.dish?.id, 'view']">{{image.dish?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/image', image.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

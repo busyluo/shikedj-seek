@@ -1,0 +1,26 @@
+
+{
+    "seekApp": {
+        "agentArea" : {
+            "home": {
+                "title": "Agent Areas",
+                "createLabel": "创建新 Agent Area",
+                "createOrEditLabel": "创建或编辑 Agent Area"
+            },
+            "created": "Agent Area {{ param }} 创建成功",
+            "updated": "Agent Area {{ param }} 更新成功",
+            "deleted": "Agent Area {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Agent Area {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Agent Area"
+            },
+            "name": "Name",
+            "bonusPool": "Bonus Pool",
+            "restaurant": "Restaurant",
+            "province": "Province",
+            "agent": "Agent"
+        }
+    }
+}
