@@ -1,0 +1,270 @@
+/** 省 */
+entity Province {
+	name String
+}
+
+/** 市 */
+entity City {
+	name String
+}
+
+/** 区 */
+entity District {
+	name String
+}
+
+/** 代理区域 */
+entity AgentArea {
+	name String
+}
+
+/** 省级代理 */
+entity AgentProvince {
+	name String
+}
+
+relationship OneToMany {
+	Province{cities} to City{province}
+    City{districts} to District{city}
+    AgentProvince{areas} to AgentArea{province}
+}
+
+relationship OneToOne { 
+	AgentProvince{province} to Province
+}
+
+/** 详细地址 */
+entity Location {
+	streetAddr String
+}
+relationship ManyToOne {
+	Location{district} to District
+}
+
+/** 餐馆分类 */
+entity RestaurantType {
+	type String maxlength(20)
+}
+
+/** 桌位状态 */
+enum TableStatus {
+    SPARE, OCCUPIED, SUSPENDED
+}
+
+/** 桌位类型 */
+enum TableType {
+    SMALL, MEDIUM, BIG
+}
+
+/** 桌位 */
+entity MealTable {
+	type TableType
+	status TableStatus
+}
+
+relationship OneToMany {
+	Restaurant{table} to MealTable{restaurant}
+}
+
+/** 餐馆 */
+entity Restaurant {
+	name String
+    openTime Instant
+    closeTime Instant
+    phone String maxlength(15)
+}
+
+/** 餐馆的图片 */
+relationship OneToMany {
+	Restaurant{photos} to Image
+}
+
+/** 餐馆与分类 */
+relationship ManyToMany {
+	Restaurant{types} to RestaurantType{restaurants}
+}
+
+/** 菜 */
+entity Dish {
+	name String
+    price Double
+}
+
+/** 菜品的图片 */
+relationship OneToMany {
+	Dish{images} to Image
+}
+
+/** 菜系 */
+entity Cuisine {
+	name String
+}
+
+relationship OneToMany {
+	Cuisine{dishes} to Dish{cuisine}
+    Restaurant{cuisines} to Cuisine{restaurant}
+}
+
+/** 订单里的菜品 */
+entity MealOrderItem {
+    amount Integer
+}
+relationship OneToOne {
+	MealOrderItem{dish} to Dish
+}
+
+/** 订单类型：普通订单，预约订单 */
+enum MealOrderType {
+	NORMAL, 
+    APPOINTMENT
+}
+
+/** 订单状态: */
+enum MealOrderStatus {
+	CREATED, // 普通订单创建
+    APPOINTMENT_CREATED,
+    APPOINTMENT_PAID,
+    APPOINTMENT_PAID_BUT_NO_TABLE,
+    OPENED, // 开始用餐
+    CHECKOUT // 结账
+}
+
+/** 用餐订单 */
+entity MealOrder {
+	time Instant
+    /** 订单类型 */
+    type MealOrderType
+    /** 订单状态 */
+    status MealOrderStatus
+    /** 使用积分数量 */
+    pointUsage Double
+    /** 已支付金额 */
+    paidAmount Double
+    /** 实际付款金额 */
+    actualPay Double
+    /** 消费总额 */
+    totalPrice Double
+}
+relationship OneToMany {
+	MealOrder{dishes} to MealOrderItem{order}
+}
+
+/** 红包 */
+entity Bonus {
+	amount Double
+}
+
+/** 奖金池 */
+entity BonusPool {
+	date LocalDate
+    used Double
+    total Double
+}
+
+/** 封印红包 */
+entity SealedBonus {
+	progress Integer
+    amount Double
+}
+
+relationship OneToOne {
+	Bonus{order} to MealOrder
+    SealedBonus{order} to MealOrder
+    AgentArea{bonusPool} to BonusPool{area}
+}
+
+relationship OneToMany {
+	Customer{bonus} to Bonus{customer}
+    Customer{sealedBonus} to SealedBonus{customer}
+}
+
+entity UserExtra {
+	phone String maxlength(11)
+}
+
+relationship OneToOne {
+	UserExtra{user} to User
+    UserExtra{bank} to BankAccount
+    UserExtra{image} to Image
+}
+
+entity Customer {
+	openID String /** 微信用户ID */
+	point Double /** 积分 */
+}
+
+entity BankAccount {
+	bankName String
+    bankBranch String
+	bankID String
+}
+
+/** 餐馆老板 */
+entity Restauranteur {
+
+}
+
+relationship OneToMany {
+	Restaurant{orders} to MealOrder{restaurant}
+}
+
+/** 代理商管理员（一级代理） */
+entity AgentAdmin {
+	
+}
+
+/** 代理商（二级代理） */
+entity Agent {
+	
+}
+
+entity Image {
+	url String
+    name String
+}
+
+/** 转账记录 */
+entity BankTransfer {
+	time Instant
+    amount Double
+}
+
+/** 管理员 */
+entity Admin {
+	
+}
+
+relationship OneToOne { 
+	Customer{user} to UserExtra
+    Restauranteur{user} to UserExtra
+    Agent{user} to UserExtra
+    Admin{user} to UserExtra
+    AgentAdmin{user} to UserExtra
+}
+
+relationship ManyToOne {
+    BankTransfer{bank} to BankAccount
+    BankTransfer{user} to UserExtra
+}
+
+relationship OneToMany {
+	AgentArea{restaurant} to Restaurant{area}
+    Restauranteur{restaurant} to Restaurant{owner}
+    Agent{area} to AgentArea{agent}
+    AgentAdmin{provinces} to AgentProvince{agent}
+}
+
+relationship OneToOne {
+	Restaurant{location} to Location
+}
+
+// Set pagination options
+// paginate Order, Employee with infinite-scroll
+paginate MealOrder with pagination
+
+//dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+// Set an angular suffix
+//angularSuffix * with mySuffix
